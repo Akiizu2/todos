@@ -1,0 +1,25 @@
+@import '../../variables';
+
+.progress-card__container {
+    background-color: $progress-card-surface;
+    padding: 16px;
+    border-radius: $default-rounded;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 8px;
+
+}
+
+.progress-card__header {
+    color: $white;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.progress-card__description {
+    color: $light-pink;
+}
