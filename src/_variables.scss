@@ -3,6 +3,9 @@
 $white: #ffffff;
 $light-pink: #EBB9B8;
 $primary: #585292;
+$secondary: #A9A9A9;
+$secondary-variant: #BCBCBC;
+$error: #E07C7C;
 
 // Background Color
 $app-surface: #D1D0D9;
@@ -11,8 +14,12 @@ $progress-card-surface: #E07C7C;
 $progress-bar-surface: #3B3B3B;
 
 // Border Radius
+$full-rounded: 999px;
 $default-rounded: 20px;
 $small-rounded: 10px;
 
 // Shadow
 $default-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
+
+// Z-index
+$menu-option-index: 2;
