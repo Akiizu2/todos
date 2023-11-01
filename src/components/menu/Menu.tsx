@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./menu.styles.scss";
 import classNames from "classnames";
+import { useClickOutSide } from "../../hooks/common/useClickOutSide";
 
 export type MenuOptions = {
   label: string;
@@ -12,14 +13,19 @@ export type MenuProps = {
 };
 
 export function Menu({ options }: MenuProps) {
+  const menuRef = useRef<HTMLDivElement | null>(null);
   const [isShowOptions, setIsShowOptions] = useState(false);
+
+  useClickOutSide(menuRef, () => {
+    setIsShowOptions(false);
+  });
 
   const toggleOptions = () => {
     setIsShowOptions((prev) => !prev);
   };
 
   return (
-    <div className="menu__container">
+    <div className="menu__container" ref={menuRef}>
       <div className="menu__button" onClick={toggleOptions}>
         <img src="/images/three-dot.svg" alt="three-dot-icon" />
       </div>
