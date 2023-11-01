@@ -12,6 +12,12 @@
     border-radius: $full-rounded;
 
     padding: 8px;
+
+    &.as-skeleton {
+        background-color: $secondary-variant;
+        animation: blink 1.5s ease-in-out infinite; 
+        height: 32px;
+    }
 }
 
 .task-item__content {

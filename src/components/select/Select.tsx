@@ -1,31 +1,40 @@
-import { useState } from "react";
-import "./select.styles.scss";
+import { useRef, useState } from "react";
 import classNames from "classnames";
+import { useClickOutSide } from "../../hooks/common/useClickOutSide";
 
-export type SelectOptions = { label: string; value: string };
+import "./select.styles.scss";
+
+export type SelectOption = { label: string; value: string };
 export type SelectProps = {
-  options: SelectOptions[];
-  value?: SelectOptions["value"];
+  options: SelectOption[];
+  value?: SelectOption["value"];
   onChange?: (value: string) => void;
 };
 
 export function Select({ value, onChange, options }: SelectProps) {
+  const selectRef = useRef<HTMLDivElement | null>(null);
   const [isShowOptions, setIsShowOptions] = useState(false);
+
+  const selectedOption = options.find((item) => item.value === value);
+
+  useClickOutSide(selectRef, () => {
+    setIsShowOptions(false);
+  });
 
   const toggleOptions = () => {
     setIsShowOptions((prev) => !prev);
   };
 
-  const handleSelect = (option: SelectOptions) => () => {
+  const handleSelect = (option: SelectOption) => () => {
     if (option.value !== value) {
       onChange?.(option.value);
     }
   };
 
   return (
-    <div className="select__container">
+    <div className="select__container" ref={selectRef}>
       <div className="select__selected-input" onClick={toggleOptions}>
-        <span>All</span>
+        <span>{selectedOption?.label}</span>
         <img
           className="chevron-icon"
           src="/images/chev-down.svg"
