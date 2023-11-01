@@ -57,6 +57,9 @@ export function TaskItem({
       },
       isNew
     );
+    if (isNew) {
+      setEditingValue("");
+    }
   };
 
   const handleStatusChange = (completed: boolean) => {
@@ -102,11 +105,7 @@ export function TaskItem({
       </div>
       <div>
         {isEditable ? (
-          <>
-            {isShowSaveButton ? (
-              <Button onClick={handleSave}>Save</Button>
-            ) : null}
-          </>
+          <>{isShowSaveButton && <Button onClick={handleSave}>Save</Button>}</>
         ) : (
           <Menu
             options={[
