@@ -1,0 +1,13 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;  
+  
+  padding: 48px;
+  
+  // Mobile
+  @media screen and (max-width: 425px) {
+    padding: 16px;
+  }
+}

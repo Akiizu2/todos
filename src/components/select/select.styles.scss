@@ -1,0 +1,69 @@
+@import '../../_variables';
+
+.select__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    width: 100px;
+
+    position: relative;
+}
+
+.select__selected-input {
+    background-color: $white;
+    border-radius: $small-rounded;
+    padding: 8px;
+
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .chevron-icon {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+.select__option-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px;
+    width: calc(100% - 16px);
+
+    background-color: $white;
+    border-radius: $small-rounded;
+
+    position: absolute;
+    top: 44px;
+    box-shadow: $default-shadow;
+}
+
+.select__option-item {
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 8px;
+    border-radius: $small-rounded;
+    cursor: pointer;
+
+    &.selected {
+        cursor: default;
+    }
+
+    &.selected, &:hover {
+        background-color: $primary;
+        color: $white;
+    }
+}
