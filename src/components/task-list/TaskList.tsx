@@ -42,6 +42,9 @@ export function TaskList({
           filter === "done" ? todo.completed : !todo.completed
         );
 
+  // FYI: just try to do it for fun to make it display as amount of latest
+  const skeletonItems = new Array(Math.max(list?.length ?? 0, 4)).fill({});
+
   return (
     <div className="task-list__container">
       <div className="task-list__header">
@@ -51,9 +54,10 @@ export function TaskList({
       <div className="task-list__body">
         {isLoading ? (
           <>
-            {list?.map((todo) => (
+            {skeletonItems?.map((todo) => (
               <TaskItem key={todo.id} isLoading />
             ))}
+            <TaskItem isLoading />
           </>
         ) : (
           <>
