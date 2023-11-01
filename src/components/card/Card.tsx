@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
-import "./card.styles.scss";
+import type { ReactNode } from "react";
 import classNames from "classnames";
+
+import "./card.styles.scss";
 
 export type CardProps = {
   children: ReactNode;

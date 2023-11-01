@@ -1,0 +1,55 @@
+@import '../../variables';
+
+.checkbox__container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    & input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+
+      &:checked {
+          & ~ .checkmark {
+            border: none;
+            width: 24px;
+            height: 24px;
+            background-color: $primary;
+            & img {
+                display: block;
+            }
+          }
+      }
+    }
+}
+
+.checkmark {
+    position: absolute;
+    top: -6px;
+    left: 4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 6px;
+    background-color: $white;
+    border: $primary solid 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+        width: 17px;
+        height: 17px;
+        display: none;
+    }
+  }

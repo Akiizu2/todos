@@ -1,5 +1,6 @@
 import { Select } from "../select";
 import { SelectOptions } from "../select/Select";
+import { TaskItem } from "../task-item";
 
 import "./taskList.styles.scss";
 
@@ -26,6 +27,21 @@ export function TaskList(props: TaskListProps) {
       <div className="task-list__header">
         <h3>Tasks</h3>
         <Select options={filterOptions} />
+      </div>
+      <div className="task-list__body">
+        <TaskItem
+          data={{
+            value: "Publish a new blog",
+            isCompleted: true,
+          }}
+        />
+        <TaskItem
+          data={{
+            value: "Call Mom at 11:11AM",
+            isCompleted: false,
+          }}
+        />
+        <TaskItem />
       </div>
     </div>
   );
