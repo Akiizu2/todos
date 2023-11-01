@@ -59,16 +59,6 @@ export const todosSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(createTodo.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(updateTodo.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(deleteTodo.pending, (state) => {
-      state.isLoading = true;
-    });
-
     // Get Todo
     builder.addCase(getTodos.pending, (state) => {
       state.isLoading = true;
@@ -80,6 +70,16 @@ export const todosSlice = createSlice({
     builder.addCase(getTodos.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error;
+    });
+
+    builder.addCase(createTodo.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateTodo.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(deleteTodo.pending, (state) => {
+      state.isLoading = true;
     });
   },
 });
